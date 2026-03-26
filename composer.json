@@ -1,5 +1,5 @@
 {
-    "name": "netgen/information-collection-bundle",
+    "name": "se7enxweb/information-collection-bundle",
     "description": "Information collection alike feature for eZ Platform",
     "type": "ezplatform-bundle",
     "keywords": [
@@ -24,13 +24,12 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3 || ^8.0 || ^8.1 || ^8.2 || ^8.3 || ^8.4 || ^8.5",
         "ext-pdo": "*",
         "doctrine/orm": "^2.5",
         "ezsystems/ezplatform-admin-ui": "^2.0",
         "ezsystems/ezplatform-content-forms": "^1.0",
         "ezsystems/ezplatform-kernel": "^1.0",
-        "symfony/swiftmailer-bundle": "^3.4",
         "twig/twig": "^3.0",
         "google/recaptcha": "^1.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
@@ -69,5 +68,8 @@
         "branch-alias": {
             "dev-master": "2.0.x-dev"
         }
+    },
+    "replace": {
+        "netgen/information-collection-bundle": "self.version"
     }
 }
