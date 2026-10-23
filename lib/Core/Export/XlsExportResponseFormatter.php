@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Netgen\InformationCollection\Core\Export;
 
 use DateTimeImmutable;
+use Exception;
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Core\Helper\TranslationHelper;
 use Netgen\InformationCollection\API\Export\ExportResponseFormatter;

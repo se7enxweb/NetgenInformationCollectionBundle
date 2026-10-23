@@ -1,5 +1,5 @@
 {
-    "name": "netgen/information-collection-bundle",
+    "name": "se7enxweb/information-collection-bundle",
     "description": "Information collection alike feature for Ibexa Platform",
     "type": "ibexa-bundle",
     "keywords": [
@@ -34,7 +34,7 @@
         "google/recaptcha": "^1.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "symfony/mailer": "^5.1",
-        "phpoffice/phpspreadsheet": "^1.14",
+        "phpoffice/phpspreadsheet": "^1.14 || ^2.0 || ^3.0 || ^4.0 || ^5.0",
         "symfony/string": "^5.4"
     },
     "require-dev": {
@@ -69,6 +69,9 @@
         "branch-alias": {
             "dev-master": "3.0.x-dev"
         }
+    },
+    "replace": {
+        "netgen/information-collection-bundle": "self.version"
     },
     "config": {
         "allow-plugins": false
