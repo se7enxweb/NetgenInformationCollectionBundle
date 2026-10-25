@@ -6,9 +6,9 @@ use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\Core\Helper\TranslationHelper;
 use Netgen\Bundle\InformationCollectionBundle\API\Export\ExportResponseFormatter;
 use Netgen\Bundle\InformationCollectionBundle\API\Value\Export\Export;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 use Symfony\Component\HttpFoundation\Response;
-use PHPExcel;
-use PHPExcel_IOFactory;
 
 final class XlsExportResponseFormatter implements ExportResponseFormatter
 {
@@ -37,10 +37,10 @@ final class XlsExportResponseFormatter implements ExportResponseFormatter
         $contentName = $this->translationHelper->getTranslatedContentName($content);
 
         array_unshift($export->contents, $export->header);
-        $excel = new PHPExcel();
-        $excel->setActiveSheetIndex(0);
+        $spreadsheet = new Spreadsheet();
+        $spreadsheet->setActiveSheetIndex(0);
 
-        $activeSheet = $excel->getActiveSheet();
+        $activeSheet = $spreadsheet->getActiveSheet();
 
         try {
             $activeSheet->setTitle(substr($contentName, 0, 30));
@@ -53,10 +53,10 @@ final class XlsExportResponseFormatter implements ExportResponseFormatter
         header('Content-Disposition: attachment;filename="' . $contentName . '.xls"');
         header('Cache-Control: max-age=0');
 
-        $objWriter = PHPExcel_IOFactory::createWriter($excel, 'Excel5');
+        $writer = new Xls($spreadsheet);
 
-        $objWriter->save('php://output');
-        unset($objWriter);
+        $writer->save('php://output');
+        unset($writer);
 
         return new Response('');
     }
