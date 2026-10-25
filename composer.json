@@ -1,5 +1,5 @@
 {
-    "name": "netgen/information-collection-bundle",
+    "name": "se7enxweb/information-collection-bundle",
     "description": "Information collection alike feature for eZ Publish 5/eZ Platform",
     "type": "ezplatform-bundle",
     "keywords": [
@@ -22,6 +22,9 @@
             "role": "Developer"
         }
     ],
+    "replace": {
+        "netgen/information-collection-bundle": "self.version"
+    },
     "require": {
         "doctrine/orm": "^2.0",
         "ezsystems/ezpublish-kernel": "*",
